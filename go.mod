@@ -3,11 +3,10 @@ module github.com/nqmt/go-service
 go 1.12
 
 require (
-	github.com/gin-gonic/gin v1.4.0 // indirect
+	github.com/gin-gonic/gin v1.4.0
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.3.0 // indirect
-	github.com/json-iterator/go v1.1.6
 	github.com/rs/xid v1.2.1
 	github.com/stretchr/testify v1.3.0
 	github.com/tidwall/pretty v1.0.0 // indirect
