@@ -3,20 +3,20 @@ package product_test
 import (
 	"github.com/nqmt/go-service/product"
 	"github.com/nqmt/go-service/product/mocks"
-	"github.com/nqmt/go-service/util/id"
+	"github.com/nqmt/go-service/util/xidgen"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
 
 type TestSuite struct {
 	mockRepo *mocks.IProductRepo
-	Service *product.Service
+	Service  *product.Service
 }
 
 func (ts *TestSuite) Mock(mockType string) {
 	switch mockType {
 	case "SaveProduct_Success":
-		ts.mockRepo.On("CreateProduct",  &product.Product{
+		ts.mockRepo.On("CreateProduct", &product.Product{
 			ID:          "xxx",
 			Name:        "1",
 			Description: "1",
@@ -32,16 +32,15 @@ func NewTestSuite() *TestSuite {
 
 	return &TestSuite{
 		mockRepo: m,
-		Service: product.NewService(m),
+		Service:  product.NewService(m),
 	}
 }
-
 
 func TestService_CreateProduct1(t *testing.T) {
 	m := &mocks.IProductRepo{}
 	service := product.NewService(m)
 
-	pid := id.New()
+	pid := xidgen.New()
 	pid.Freeze("xxx")
 
 	m.On("CreateProduct", &product.Product{

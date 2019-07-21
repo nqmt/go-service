@@ -1,11 +1,10 @@
-package id
+package xidgen
 
 import (
 	"github.com/stretchr/testify/require"
 	"reflect"
 	"testing"
 )
-
 
 func TestId(t *testing.T) {
 	t.Run(" singleton", func(t *testing.T) {

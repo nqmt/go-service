@@ -1,13 +1,13 @@
 package product
 
-import "github.com/nqmt/go-service/util/id"
+import "github.com/nqmt/go-service/util/xidgen"
 
 type IService interface {
-	CreateProduct(product *Product) (*Product,error)
+	CreateProduct(product *Product) (*Product, error)
 	UpdateProduct(product *Product) error
 	DeleteProduct(id string) error
-	GetProduct(id string) (*Product ,error)
-	GetProductList() ([]*Product ,error)
+	GetProduct(id string) (*Product, error)
+	GetProductList() ([]*Product, error)
 }
 
 type Service struct {
@@ -20,8 +20,8 @@ func NewService(product IProductRepo) *Service {
 	}
 }
 
-func (s *Service) CreateProduct(input *Product) (*Product,error) {
-	xid := id.New()
+func (s *Service) CreateProduct(input *Product) (*Product, error) {
+	xid := xidgen.New()
 
 	product := &Product{
 		ID:          xid.Gen(),
@@ -40,7 +40,6 @@ func (s *Service) CreateProduct(input *Product) (*Product,error) {
 	return product, nil
 }
 
-
 func (s *Service) UpdateProduct(input *Product) error {
 	return nil
 }
@@ -49,11 +48,10 @@ func (s *Service) DeleteProduct(id string) error {
 	return nil
 }
 
-
-func (s *Service) GetProduct(id string) (*Product ,error) {
+func (s *Service) GetProduct(id string) (*Product, error) {
 	return nil, nil
 }
 
-func (s *Service) GetProductList() ([]*Product ,error) {
+func (s *Service) GetProductList() ([]*Product, error) {
 	return nil, nil
 }

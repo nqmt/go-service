@@ -1,4 +1,4 @@
-package id
+package xidgen
 
 import (
 	"github.com/rs/xid"
@@ -27,7 +27,6 @@ func (i ID) Gen() string {
 
 	return xid.New().String()
 }
-
 
 func (i *ID) Freeze(id string) {
 	i.freezeID = id

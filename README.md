@@ -9,7 +9,8 @@
 - [x] binary
 - [ ] error message
 - [ ] config
-- [ ] wrap docker container
+- [x] wrap docker container
+- [ ] reduce binary size [fix](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
 
 ## Library
 

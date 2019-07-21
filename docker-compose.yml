@@ -9,3 +9,12 @@ services:
     ports:
       - 27017:27017
     container_name: mongo
+
+  go-service:
+    build:
+      context: .
+      dockerfile: ./deployment/Dockerfile
+    restart: always
+    ports:
+      - 6001:6001
+    container_name: go-service
