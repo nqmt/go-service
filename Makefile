@@ -5,10 +5,10 @@ gen:
 	go generate ./...
 
 dev:
-	go run bin/gin/main.go
+	go run cmd/gin/main.go
 
 build:
-	go build -o bin/gin/gin bin/gin/main.go
+	go build -o cmd/gin/gin cmd/gin/main.go
 
 run:
-	bin/gin/gin
+	cmd/gin/gin
