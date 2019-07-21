@@ -8,7 +8,7 @@ import (
 
 
 func TestId(t *testing.T) {
-	t.Run("is singleton", func(t *testing.T) {
+	t.Run(" singleton", func(t *testing.T) {
 		tid1 := New()
 		tid2 := New()
 

@@ -1,38 +1,59 @@
-package service
+package product_test
 
 import (
-	"github.com/nqmt/go-service/domain"
-	"github.com/nqmt/go-service/handler"
-	"github.com/nqmt/go-service/repository/mocks"
+	"github.com/nqmt/go-service/product"
+	"github.com/nqmt/go-service/product/mocks"
 	"github.com/nqmt/go-service/util/id"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
 
+type TestSuite struct {
+	mockRepo *mocks.IProductRepo
+	Service *product.Service
+}
+
+func (ts *TestSuite) Mock(mockType string) {
+	switch mockType {
+	case "SaveProduct_Success":
+		ts.mockRepo.On("CreateProduct",  &product.Product{
+			ID:          "xxx",
+			Name:        "1",
+			Description: "1",
+			Image:       "1",
+			Price:       1,
+			Quantity:    1,
+		}).Return(nil)
+	}
+}
+
+func NewTestSuite() *TestSuite {
+	m := &mocks.IProductRepo{}
+
+	return &TestSuite{
+		mockRepo: m,
+		Service: product.NewService(m),
+	}
+}
+
+
 func TestService_CreateProduct1(t *testing.T) {
-	m := &mocks.IRepository{}
-	service := New(m)
+	m := &mocks.IProductRepo{}
+	service := product.NewService(m)
 
 	pid := id.New()
 	pid.Freeze("xxx")
 
-	m.On("SaveProduct", &domain.Product{
+	m.On("CreateProduct", &product.Product{
 		ID:          "xxx",
 		Name:        "1",
 		Description: "1",
 		Image:       "1",
 		Price:       1,
 		Quantity:    1,
-	}).Return(&domain.Product{
-		ID:          "xxx",
-		Name:        "1",
-		Description: "1",
-		Image:       "1",
-		Price:       1,
-		Quantity:    1,
-	}, nil)
+	}).Return(nil)
 
-	got, err := service.CreateProduct(&handler.InputCreateProduct{
+	got, err := service.CreateProduct(&product.Product{
 		Name:        "1",
 		Description: "1",
 		Image:       "1",
@@ -40,7 +61,7 @@ func TestService_CreateProduct1(t *testing.T) {
 		Quantity:    1,
 	})
 
-	expect := &handler.OutputCreateProduct{
+	expect := &product.Product{
 		ID:          "xxx",
 		Name:        "1",
 		Description: "1",
@@ -58,7 +79,7 @@ func TestService_CreateProduct2(t *testing.T) {
 	ts := NewTestSuite()
 	ts.Mock("SaveProduct_Success")
 
-	got, err := ts.Service.CreateProduct(&handler.InputCreateProduct{
+	got, err := ts.Service.CreateProduct(&product.Product{
 		Name:        "1",
 		Description: "1",
 		Image:       "1",
@@ -66,7 +87,7 @@ func TestService_CreateProduct2(t *testing.T) {
 		Quantity:    1,
 	})
 
-	expect := &handler.OutputCreateProduct{
+	expect := &product.Product{
 		ID:          "xxx",
 		Name:        "1",
 		Description: "1",

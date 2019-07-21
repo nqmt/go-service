@@ -5,11 +5,11 @@
 - [x] domain 
 - [x] service
 - [x] repository
-- [ ] handler
-- [ ] binary
+- [x] handler
+- [x] binary
 - [ ] error message
 - [ ] config
-- [ ] body parser, query params
+- [ ] wrap docker container
 
 ## Library
 
@@ -20,3 +20,10 @@
 - [ ] elasticsearch
 - [ ] http
 - [ ] jaeger
+
+
+config logger
+cookie jwt
+bodyparser
+compress
+middleware
