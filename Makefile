@@ -12,3 +12,6 @@ build:
 
 run:
 	cmd/gin/gin
+
+bench:
+	go test -bench=. ./benchmark
