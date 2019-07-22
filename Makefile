@@ -15,3 +15,6 @@ run:
 
 bench:
 	go test -bench=. ./benchmark
+
+build-image:
+	docker build -f deployment/Dockerfile .
