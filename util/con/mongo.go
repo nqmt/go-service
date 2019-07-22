@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func Connect(url string) *mongo.Client {
+func ConnectMongo(url string) *mongo.Client {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(url))

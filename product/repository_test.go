@@ -16,7 +16,7 @@ type RepoTestSuite struct {
 
 
 func NewRepoTestSuite() *RepoTestSuite {
-	mongo := con.Connect("mongodb://test:test@localhost:27017")
+	mongo := con.ConnectMongo("mongodb://test:test@localhost:27017")
 
 	return &RepoTestSuite{
 		mongo: mongo,
