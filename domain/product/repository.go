@@ -11,7 +11,7 @@ type IProductRepo interface {
 	UpdateProduct(product *Product) error
 	DeleteProduct(id string) error
 	GetProduct(id string) *Product
-	GetProductList() ([]*Product ,error)
+	GetProductList() ([]*Product,error)
 }
 
 type ProductRepo struct {
@@ -45,6 +45,6 @@ func (p *ProductRepo) GetProduct(id string) *Product {
 	return nil
 }
 
-func (p *ProductRepo) GetProductList() ([]*Product ,error) {
+func (p *ProductRepo) GetProductList() ([]*Product,error) {
 	return nil, nil
 }

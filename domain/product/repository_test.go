@@ -2,7 +2,7 @@ package product_test
 
 import (
 	"context"
-	"github.com/nqmt/go-service/product"
+	"github.com/nqmt/go-service/domain/product"
 	"github.com/nqmt/go-service/util/con"
 	"github.com/stretchr/testify/require"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -20,7 +20,7 @@ func NewRepoTestSuite() *RepoTestSuite {
 
 	return &RepoTestSuite{
 		mongo: mongo,
-		repo: product.NewProductRepo(mongo, "e-commerce", "product"),
+		repo:  product.NewProductRepo(mongo, "e-commerce", "product"),
 	}
 }
 

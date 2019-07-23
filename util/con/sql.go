@@ -5,8 +5,8 @@ import (
 	_ "gopkg.in/goracle.v2"
 )
 
-func ConnectOracle() *sqlx.DB {
-	db, err := sqlx.Open("goracle", "SYSTEM/password@127.0.0.1:1521/TEST01")
+func ConnectSql(driver, datasource string) *sqlx.DB {
+	db, err := sqlx.Open(driver, datasource)
 	if err != nil {
 		panic(err)
 	}

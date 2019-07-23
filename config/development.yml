@@ -1,0 +1,8 @@
+ENV_STAGE: "dev"
+PORT: 6001
+
+MONGODB:
+  CONNECTION: "mongodb://test:test@localhost:27017"
+
+ORACLE:
+  CONNECTION: "SYSTEM/password@127.0.0.1:1521/TEST01"

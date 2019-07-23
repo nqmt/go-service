@@ -1,8 +1,8 @@
 package product_test
 
 import (
-	"github.com/nqmt/go-service/product"
-	"github.com/nqmt/go-service/product/mocks"
+	"github.com/nqmt/go-service/domain/product"
+	"github.com/nqmt/go-service/domain/product/mocks"
 	"github.com/nqmt/go-service/util/xidgen"
 	"github.com/stretchr/testify/require"
 	"testing"
