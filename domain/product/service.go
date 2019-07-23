@@ -1,6 +1,9 @@
 package product
 
-import "github.com/nqmt/go-service/util/xidgen"
+import (
+	"github.com/nqmt/go-service/util/errorx"
+	"github.com/nqmt/go-service/util/xidgen"
+)
 
 type IService interface {
 	CreateProduct(product *Product) (*Product, error)
@@ -34,7 +37,8 @@ func (s *Service) CreateProduct(input *Product) (*Product, error) {
 
 	err := s.productRepo.CreateProduct(product)
 	if err != nil {
-		return nil, err
+		// ErrUnableCreateProduct(err)
+		return nil, errorx.InternalServerError(err.Error(), "UNABLE_CREATE_PRODUCT", "unable create product")
 	}
 
 	return product, nil
