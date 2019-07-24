@@ -12,7 +12,7 @@
 - [x] wrap docker container
 - [x] benchmark
 - [x] reduce binary size [fix](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
-- [ ] max request timeout
+- [x] max request timeout
 
 ## Library
 
