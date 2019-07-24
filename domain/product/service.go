@@ -1,7 +1,6 @@
 package product
 
 import (
-	"github.com/nqmt/go-service/util/errorx"
 	"github.com/nqmt/go-service/util/xidgen"
 )
 
@@ -37,9 +36,10 @@ func (s *Service) CreateProduct(input *Product) (*Product, error) {
 
 	err := s.productRepo.CreateProduct(product)
 	if err != nil {
-		// ErrUnableCreateProduct(err)
-		return nil, errorx.InternalServerError(err.Error(), "UNABLE_CREATE_PRODUCT", "unable create product")
+		return nil, ErrUnableCreateProduct.WithCause(err)
 	}
+
+
 
 	return product, nil
 }

@@ -16,20 +16,24 @@ func (e ErrorX) Error() string {
 	return fmt.Sprintf("%s: %s", e.Code, e.Msg)
 }
 
-func BadRequest(err, code, msg string) *ErrorX {
+func (e *ErrorX) WithCause(cause error) *ErrorX {
+	e.Cause = cause.Error()
+
+	return e
+}
+
+func DefineBadRequest(code, msg string) *ErrorX {
 	return &ErrorX{
 		Status: http.StatusBadRequest,
 		Code:   code,
 		Msg:    msg,
-		Cause:  err,
 	}
 }
 
-func InternalServerError(err, code, msg string) *ErrorX {
+func DefineInternalServerError(code, msg string) *ErrorX {
 	return &ErrorX{
 		Status: http.StatusInternalServerError,
 		Code:   code,
 		Msg:    msg,
-		Cause:  err,
 	}
 }

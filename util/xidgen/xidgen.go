@@ -16,8 +16,6 @@ func New() *ID {
 	}
 
 	return instance
-
-	//return &ID{}
 }
 
 func (i ID) Gen() string {

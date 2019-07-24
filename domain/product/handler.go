@@ -34,7 +34,7 @@ func (h *Handler) CreateProduct() func(c *gin.Context) {
 
 		output, err := h.service.CreateProduct(input)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"message": err.(errorx.ErrorX).Msg})
+			c.JSON(err.(*errorx.ErrorX).Status, gin.H{"message": err.Error()})
 			return
 		}
 
