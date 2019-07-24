@@ -13,6 +13,7 @@ require (
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/labstack/echo v3.3.10+incompatible // indirect
 	github.com/labstack/gommon v0.2.9 // indirect
+	github.com/nqmt/goerror v0.0.0-20190724074922-ad61ebf703ba
 	github.com/rs/xid v1.2.1
 	github.com/spf13/viper v1.4.0
 	github.com/stretchr/testify v1.3.0

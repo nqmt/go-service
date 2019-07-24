@@ -1,8 +1,9 @@
 package product
 
-import "github.com/nqmt/go-service/util/errorx"
-
-var (
-	ErrUnableCreateProduct = errorx.DefineInternalServerError("UNABLE_CREATE_PRODUCT", "unable create product")
+import (
+	"github.com/nqmt/goerror"
 )
 
+var (
+	ErrUnableCreateProduct = goerror.DefineInternalServerError("UNABLE_CREATE_PRODUCT", "unable create product")
+)

@@ -2,7 +2,7 @@ package product
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/nqmt/go-service/util/errorx"
+	"github.com/nqmt/goerror"
 	"net/http"
 )
 
@@ -34,7 +34,7 @@ func (h *Handler) CreateProduct() func(c *gin.Context) {
 
 		output, err := h.service.CreateProduct(input)
 		if err != nil {
-			c.JSON(err.(*errorx.ErrorX).Status, gin.H{"message": err.Error()})
+			c.JSON(err.(*goerror.GoError).Status, gin.H{"message": err.Error()})
 			return
 		}
 
