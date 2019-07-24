@@ -3,7 +3,7 @@ package product_test
 import (
 	"github.com/nqmt/go-service/domain/product"
 	"github.com/nqmt/go-service/domain/product/mocks"
-	"github.com/nqmt/go-service/util/xidgen"
+	"github.com/nqmt/goxid"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
@@ -40,7 +40,7 @@ func TestService_CreateProduct1(t *testing.T) {
 	m := &mocks.IProductRepo{}
 	service := product.NewService(m)
 
-	pid := xidgen.New()
+	pid := goxid.New()
 	pid.Freeze("xxx")
 
 	m.On("CreateProduct", &product.Product{

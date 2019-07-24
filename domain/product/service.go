@@ -1,7 +1,7 @@
 package product
 
 import (
-	"github.com/nqmt/go-service/util/xidgen"
+	"github.com/nqmt/goxid"
 )
 
 type IService interface {
@@ -23,7 +23,7 @@ func NewService(product IProductRepo) *Service {
 }
 
 func (s *Service) CreateProduct(input *Product) (*Product, error) {
-	xid := xidgen.New()
+	xid := goxid.New()
 
 	product := &Product{
 		ID:          xid.Gen(),
@@ -38,8 +38,6 @@ func (s *Service) CreateProduct(input *Product) (*Product, error) {
 	if err != nil {
 		return nil, ErrUnableCreateProduct.WithCause(err)
 	}
-
-
 
 	return product, nil
 }
