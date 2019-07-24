@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/nqmt/go-service/config"
@@ -18,8 +17,6 @@ func main() {
 	g.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	conf := config.Setup()
-
-	fmt.Println(conf)
 
 	// connect db
 	mongo := con.ConnectMongo(conf.Mongodb.Connection)

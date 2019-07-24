@@ -3,6 +3,7 @@ package product
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
+	"time"
 )
 
 //go:generate mockery -name=IProductRepo
@@ -25,7 +26,8 @@ func NewProductRepo(mongo *mongo.Client, database, collection string) *ProductRe
 }
 
 func (p *ProductRepo) CreateProduct(product *Product) error {
-	_, err := p.product.InsertOne(context.Background(), product)
+	ctx, _ := context.WithTimeout(context.Background(), 3*time.Second)
+	_, err := p.product.InsertOne(ctx, product)
 	if err != nil {
 		return err
 	}
